@@ -1,0 +1,102 @@
+<!-- 
+    Snippets for customizing navigation & other features for websites
+
+    For more detailed instructions on use refer to documentation 
+
+    1. Change navigation bg color on scroll CSS & JS
+    2. Slide navigation into view on scroll CSS & JS
+    3. Create and Check for cookie for age-overlay JS 
+    4. Change logo width in custom navigation on scroll 
+
+-->
+
+<!-- 1. Change navigation background color after scroll -->
+<style>
+    #nav-menu-scroll {
+      background-color: transparent;
+      transition: all .5s;
+      height: 100px;
+    }
+  </style>
+  <script>
+  (function($) {
+      $( document ).ready(function() {
+      let menu = $('#nav-menu-scroll');
+          document.addEventListener('scroll', () => {
+              if(window.scrollY > 200) {
+                  menu.css("background-color", "black");
+              } else {
+                  menu.css("background-color", "transparent");
+              }
+          });
+      });	
+  })( jQuery );
+  </script>
+
+<!-- 2. Slide Down navigation on scroll -->  
+<style>
+        #nav-menu-scroll {
+        position: fixed;
+        top: -200px; 
+        width: 100%;
+        transition: all .5s;
+    }
+
+    .fixed {
+        top: 0px !important; 
+    }
+</style>
+<script>
+    (function($) {
+        $( document ).ready(function() {
+            let menu = $('#nav-menu-scroll');
+            document.addEventListener('scroll', () => {
+                if(window.scrollY > 200) {
+                    menu.addClass('fixed');
+                } else {
+                    menu.removeClass('fixed');
+                }
+            });
+        });	
+    })( jQuery );
+    </script>
+
+<!-- 3. Create and check for cookie for age overlay -->
+
+<script>
+    (function($) {
+      // SET AGE COOKIES 
+      var allCookies = document.cookie;
+      function checkAge() {
+        if(allCookies.search('age-wall=yes') == 0) {
+             //$('#age-wall-overlay').hide();
+              console.log('you shall pass');
+          } else {
+            console.log('you shall not pass');
+            $('#age-wall-overlay').css('display','flex');
+          $('#age-yes').click(function(e){
+            e.preventDefault();
+            document.cookie='age-wall=yes;path=/;';
+            $('#age-wall-overlay').hide();
+          });
+          $('#age-no').click(function(e){	
+              e.preventDefault();
+              alert('Sorry, you must be at least 21 to enter.')
+          });
+        }
+      }
+    window.addEventListener('load', checkAge);
+    })( jQuery );
+    </script> 
+
+<!-- 4. Change Navigation Logo Size on scroll ( Custom Menu )  -->
+
+<script>
+$(window).scroll(()=>{
+    if (window.scrollY > 80) {
+		$('#nav-logo').css('width', '100px');
+    } else {
+		$('#nav-logo').css('width', '125px');
+    } 
+  });
+</script>

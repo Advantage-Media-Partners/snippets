@@ -1,0 +1,238 @@
+.call-cta a {
+    color: white !important;
+    background: #038576;
+    padding: 15px !important;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+ 
+.mobile_menu_bar:before, .mobile_menu_bar:after {
+	color: #038576;
+}
+ 
+.et_mobile_menu {
+    border-top: 3px solid #038576 !important;
+}
+ 
+.flex-display {
+	display: flex;
+	align-items: center;
+}
+ 
+@media only screen and (max-width: 980px) {
+	.flex-display {
+		display: block;
+	}
+}
+ 
+.flex-left {
+	display: flex;
+	justify-content: flex-end;
+}
+ 
+.flex-right {
+	display: flex;
+	justify-content: flex-start;
+}
+ 
+@media only screen and (max-width: 980px) {
+	.flex-left, .flex-right {
+		justify-content: center;
+	}
+}
+ 
+.et_menu_container {
+	display: flex;
+	justify-content: center;
+}
+ 
+@media only screen and (max-width: 980px) {
+	.et_menu_container {
+		display: block;
+	}
+}
+ 
+ 
+#page-container, .et_pb_section_0 {
+	padding-top: 0px !important;
+}
+ 
+#main-header { 
+	display: none;
+}
+ 
+@media only screen and (max-width: 980px) {
+	.et_fixed_nav #main-header {
+		background: white !important;
+	}
+	#main-header .et_mobile_menu {
+		background: white !important;
+	}
+}
+ 
+@media only screen and (max-width: 980px) {
+ 
+.two-columns .et_pb_column {
+width: 50%!important;
+}
+ 
+.three-columns .et_pb_column {
+width: 33.33%!important;
+}
+ 
+.four-columns .et_pb_column {
+width: 25%!important;
+}
+	
+.et_header_style_left #logo, .et_header_style_split #logo {
+max-height: 90%;
+}
+ 
+}
+ 
+@media only screen and (max-width: 980px) {
+ 
+.select_page {
+	display: none !important;
+}
+ 
+.et_header_style_centered #main-header .mobile_nav {
+	background: transparent;
+	padding: 15px 0 15px 0;
+}
+ 
+}
+ 
+/* zoom slider SMALL css */
+ 
+#zoom-slider img {
+	animation-delay: 5s;
+	animation: zoom 3s forwards;
+	overflow: hidden;
+}
+ 
+@keyframes zoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.2);
+    }
+}
+ 
+/** zoom slider BIG css **/
+ 
+.kb-zoom .et_pb_slide {
+   animation: zoomin 7s forwards;
+  -ms-animation: zoomin 7s forwards;
+  -webkit-animation: zoomin 7s forwards;
+  -moz-animation: zoomin 7s forwards;
+}
+ 
+@keyframes zoomin{
+0%{
+    -ms-transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
+    -o-transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
+    -moz-transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
+    transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
+    animation-timing-function: linear;
+ 
+ 
+}
+ 
+ 
+100%{
+    -ms-transform: scale3d(1.5, 1.5, 1.5) translate3d(-0px, 0px, 0px);
+    -webkit-transform: scale3d(3.5, 3.5, 3.5) translate3d(0px, 0px, 0px);
+    -o-transform: scale3d(1.5, 1.5, 1.5) translate3d(0px, 0px, 0px);
+    -moz-transform: scale3d(1.5, 1.5, 1.5) translate3d(0px, 0px, 0px);
+    transform: scale3d(1.5, 1.5, 1.5) translate3d(0px, 0px, 0px);
+ 
+}
+}
+ 
+/*adjust Divi Menu module breakpoint*/
+@media only screen and (max-width: 1160px) {
+#top-menu-nav {
+display: none;
+}
+#et_mobile_nav_menu {
+display: block
+}
+}
+ 
+/* Display current year function */
+
+function year_shortcode() {
+$year = date_i18n('Y');
+return $year; } add_shortcode
+(
+'year', 'year_shortcode');
+ 
+ 
+/* allow font files to be uploaded */
+ 
+define('ALLOW_UNFILTERED_UPLOADS', true);
+ 
+ 
+/* fix shitty divi navigation with centered logo ( works best with circle logo ) */
+ 
+.et_header_style_left #et-top-navigation, .et_header_style_split #et-top-navigation {
+	padding-top: 0;
+}
+ 
+@media only screen and (min-width: 981px)
+{
+	.logo_container img {
+		max-height: 200% !important;
+	}
+}
+@media only screen and (max-width: 980px) {
+	.select_page {
+		display: none !important;
+	}
+	.logo_container {
+		position: absolute !important;
+   		 top: -25px  !important;
+		left: -50px  !important;
+	}
+	.logo_container img {
+		max-height: 200px  !important;
+	}
+	#et-main-area {
+		margin-top: -7px;
+	}
+}
+ 
+ 
+/* background ribbon */ 
+ 
+.ribbon-content:before {
+ content: "";
+ position: absolute;
+ display: block;
+ border-style: solid;
+ border-color: #804f7c transparent transparent transparent;
+ bottom: -1em;
+}
+.ribbon-content:before {
+ left: 0;
+ border-width: 1em 0 0 1em;
+}
+ 
+/* pusedo element outlines */ 
+
+.element:before {
+	display: block;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: calc(100% - 22px);
+	height: calc(100% - 22px);
+	border: 1px solid #d9e1e2;
+	z-index: 999;
+	max-width: none;
+	content: '';
+	pointer-events: none;
+}
