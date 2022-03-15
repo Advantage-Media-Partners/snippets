@@ -3,14 +3,26 @@
 
     For more detailed instructions on use refer to documentation 
 
-    1. Change navigation bg color on scroll CSS & JS
-    2. Slide navigation into view on scroll CSS & JS
-    3. Create and Check for cookie for age-overlay JS 
-    4. Change logo width in custom navigation on scroll 
+    1. jQuery WP wrapper
+    2. Change navigation bg color on scroll CSS & JS
+    3. Slide navigation into view on scroll CSS & JS
+    4. Create and Check for cookie for age-overlay JS 
+    5. Change logo width in custom navigation on scroll 
+    6. Before & After Borders CSS
 
 -->
 
-<!-- 1. Change navigation background color after scroll -->
+<!--- 1. jQuery wrapper for wordpress --->
+
+<script>
+(function($) {
+	
+	// when writing jQuery in WP you need to wrap everything in this function in order to $ selector
+	
+})( jQuery );
+</script>
+
+<!-- 2. Change navigation background color after scroll -->
 <style>
     #nav-menu-scroll {
       background-color: transparent;
@@ -33,7 +45,7 @@
   })( jQuery );
   </script>
 
-<!-- 2. Slide Down navigation on scroll -->  
+<!-- 3. Slide Down navigation on scroll -->  
 <style>
         #nav-menu-scroll {
         position: fixed;
@@ -61,7 +73,7 @@
     })( jQuery );
     </script>
 
-<!-- 3. Create and check for cookie for age overlay -->
+<!-- 4. Create and check for cookie for age overlay -->
 
 <script>
     (function($) {
@@ -89,7 +101,7 @@
     })( jQuery );
     </script> 
 
-<!-- 4. Change Navigation Logo Size on scroll ( Custom Menu )  -->
+<!-- 5. Change Navigation Logo Size on scroll ( Custom Menu )  -->
 
 <script>
 $(window).scroll(()=>{
@@ -100,3 +112,29 @@ $(window).scroll(()=>{
     } 
   });
 </script>
+
+<!-- 6. Before & After Borders CSS  -->
+<!-- omit the selector tags if using in a Divi module custom css option -->
+
+<style>
+::before {
+  content: '';
+  background: black;
+  position: absolute;
+  width: 45px;
+  height: 5px;
+  right: -10px;
+  top: 0;
+}
+
+::after {
+  content: '';
+  background: black;
+  position: absolute;
+  width: 5px;
+  height: 45px;
+  right: -10px;
+  top: 0;
+}
+</style>
+
