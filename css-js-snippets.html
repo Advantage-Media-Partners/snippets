@@ -9,6 +9,7 @@
     4. Create and Check for cookie for age-overlay JS 
     5. Change logo width in custom navigation on scroll 
     6. Before & After Borders CSS
+    7. Blur sections when hovering on another section ( blur one column while hovering on adjacent column )
 
 -->
 
@@ -138,3 +139,40 @@ $(window).scroll(()=>{
 }
 </style>
 
+<!-- 7. blur sections on hover -->
+<style>
+  /** add ID's to each column and replace fishing & delivery ID's below **/
+  #fishing, #delivery {
+    transition: all .5s;
+  }
+  .blurred {
+    filter: blur(4px);
+  }
+</style>
+<script>
+  (function($) {
+    
+    // add ID's to each column and replace fishing & delivery ID's below
+    let target1 = $('#fishing');
+    let target2 = $('#delivery');
+
+    console.log(target1);
+
+    target1.hover(
+      () => {
+        target2.addClass('blurred');
+      },
+      ()=>{
+      	target2.removeClass('blurred');
+    });
+    
+    target2.hover(
+      () => {
+        target1.addClass('blurred');
+      },
+      ()=>{
+      	target1.removeClass('blurred');
+    });
+  })( jQuery );
+</script>
+  
