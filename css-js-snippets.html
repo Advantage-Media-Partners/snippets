@@ -82,7 +82,7 @@
       var allCookies = document.cookie;
       function checkAge() {
         if(allCookies.search('age-wall=yes') == 0) {
-             //$('#age-wall-overlay').hide();
+             $('#age-wall-overlay').hide();
               console.log('you shall pass');
           } else {
             console.log('you shall not pass');
@@ -115,7 +115,7 @@ $(window).scroll(()=>{
 </script>
 
 <!-- 6. Before & After Borders CSS  -->
-<!-- omit the selector tags if using in a Divi module custom css option -->
+<!-- omit the selector tags if using in a Divi module - use custom css options within module -->
 
 <style>
 ::before {
