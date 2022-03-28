@@ -8,6 +8,7 @@
 6. Divi centered menu mobile upgrade
 7. Pusedo element ribbon
 8. Pusedo element outlines
+9. Customize WooCommerce Buttons
 
 **/ 
 
@@ -25,16 +26,17 @@
  
 @media only screen and (max-width: 980px) {
  
-.two-columns .et_pb_column {
-	width: 50%!important;
-}
- 
-.three-columns .et_pb_column {
-	width: 33.33%!important;
-}
- 
-.four-columns .et_pb_column {
-	width: 25%!important;
+	.two-columns .et_pb_column {
+		width: 50%!important;
+	}
+	
+	.three-columns .et_pb_column {
+		width: 33.33%!important;
+	}
+	
+	.four-columns .et_pb_column {
+		width: 25%!important;
+	}
 }
 	
 /** 3. adjust Divi Menu module breakpoint **/
@@ -158,4 +160,44 @@
 	max-width: none;
 	content: '';
 	pointer-events: none;
+}
+
+/** 9. Customize WooCommerce Elements **/
+
+/* Buttons Standard State */
+
+.woocommerce #content input.button, .woocommerce #content input.button.alt, .woocommerce #respond input#submit, .woocommerce #respond input#submit.alt, 
+.woocommerce-page #content input.button, .woocommerce-page #content input.button.alt, .woocommerce-page #respond input#submit, 
+.woocommerce-page #respond input#submit.alt, .woocommerce-page a.button, .woocommerce-page a.button.alt, .woocommerce-page button.button, 
+.woocommerce-page button.button.alt, .woocommerce-page button.button.alt.disabled, .woocommerce-page input.button, .woocommerce-page input.button.alt, 
+.woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button, .woocommerce button.button.alt, .woocommerce button.button.alt.disabled, 
+.woocommerce input.button, .woocommerce input.button.alt {
+	color: black;
+	background: white;
+}
+
+/* Buttons Hover State */
+
+.comment-reply-link:hover, .et_password_protected_form .et_submit_button:hover, .form-submit .et_pb_button:hover, 
+.woocommerce #content input.button.alt:hover, .woocommerce #content input.button:hover, .woocommerce #respond input#submit.alt:hover, 
+.woocommerce #respond input#submit:hover, .woocommerce-page #content input.button.alt:hover, .woocommerce-page #content input.button:hover, 
+.woocommerce-page #respond input#submit.alt:hover, .woocommerce-page #respond input#submit:hover, .woocommerce-page a.button.alt:hover, 
+.woocommerce-page a.button:hover, .woocommerce-page button.button.alt.disabled:hover, .woocommerce-page button.button.alt:hover, 
+.woocommerce-page button.button:hover, .woocommerce-page input.button.alt:hover, .woocommerce-page input.button:hover, .woocommerce a.button.alt:hover, 
+.woocommerce a.button:hover, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:hover, .woocommerce button.button:hover, 
+.woocommerce input.button.alt:hover, .woocommerce input.button:hover {
+	color: white;
+	background: black;
+}
+
+/* Woo Message Area & Button */ 
+
+.woocommerce .woocommerce-error, .woocommerce .woocommerce-info, .woocommerce .woocommerce-message {
+	background: #D2D2CF;
+	color: white;
+}
+
+.woocommerce-message a.button.wc-forward, .woocommerce-message a.button.wc-forward:hover {
+	background: black;
+	color: white;
 }
