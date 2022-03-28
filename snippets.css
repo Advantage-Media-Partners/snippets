@@ -1,11 +1,17 @@
-.call-cta a {
-    color: white !important;
-    background: #038576;
-    padding: 15px !important;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
- 
+/** 
+
+1. Menu Bar Text/Icon
+2. Mobile Columns 
+3. adjust Divi Menu module breakpoint
+4. Zoom Animation
+5. Ken Burns BG Slider Effect
+6. Divi centered menu mobile upgrade
+7. Pusedo element ribbon
+8. Pusedo element outlines
+
+**/ 
+
+/** 1. Menu Bar Text/Icon **/ 
 .mobile_menu_bar:before, .mobile_menu_bar:after {
 	color: #038576;
 }
@@ -14,96 +20,35 @@
     border-top: 3px solid #038576 !important;
 }
  
-.flex-display {
-	display: flex;
-	align-items: center;
-}
- 
-@media only screen and (max-width: 980px) {
-	.flex-display {
-		display: block;
-	}
-}
- 
-.flex-left {
-	display: flex;
-	justify-content: flex-end;
-}
- 
-.flex-right {
-	display: flex;
-	justify-content: flex-start;
-}
- 
-@media only screen and (max-width: 980px) {
-	.flex-left, .flex-right {
-		justify-content: center;
-	}
-}
- 
-.et_menu_container {
-	display: flex;
-	justify-content: center;
-}
- 
-@media only screen and (max-width: 980px) {
-	.et_menu_container {
-		display: block;
-	}
-}
- 
- 
-#page-container, .et_pb_section_0 {
-	padding-top: 0px !important;
-}
- 
-#main-header { 
-	display: none;
-}
- 
-@media only screen and (max-width: 980px) {
-	.et_fixed_nav #main-header {
-		background: white !important;
-	}
-	#main-header .et_mobile_menu {
-		background: white !important;
-	}
-}
+
+/** 2. Mobile Columns ( built into new theme, can be used on legacy themes or custom legacy themes ) **/
  
 @media only screen and (max-width: 980px) {
  
 .two-columns .et_pb_column {
-width: 50%!important;
+	width: 50%!important;
 }
  
 .three-columns .et_pb_column {
-width: 33.33%!important;
+	width: 33.33%!important;
 }
  
 .four-columns .et_pb_column {
-width: 25%!important;
+	width: 25%!important;
 }
 	
-.et_header_style_left #logo, .et_header_style_split #logo {
-max-height: 90%;
+/** 3. adjust Divi Menu module breakpoint **/
+
+@media only screen and (max-width: 1160px) {
+	#top-menu-nav {
+	display: none;
+	}
+	#et_mobile_nav_menu {
+	display: block
+	}
 }
  
-}
- 
-@media only screen and (max-width: 980px) {
- 
-.select_page {
-	display: none !important;
-}
- 
-.et_header_style_centered #main-header .mobile_nav {
-	background: transparent;
-	padding: 15px 0 15px 0;
-}
- 
-}
- 
-/* zoom slider SMALL css */
+/* 4. Zoom Animation */
  
 #zoom-slider img {
 	animation-delay: 5s;
@@ -120,8 +65,11 @@ max-height: 90%;
     }
 }
  
-/** zoom slider BIG css **/
- 
+/** 5. Ken Burns BG Slider Effect - works best as a background slider **/
+/** Will enlarge content in the slide h1, h2, body copy, cta etc **/
+/** Position a new section using absolute and a high z-index to place it **/
+/** ontop of the slider, allows for a ken burns slider background with static content on top **/  
+
 .kb-zoom .et_pb_slide {
    animation: zoomin 7s forwards;
   -ms-animation: zoomin 7s forwards;
@@ -130,53 +78,28 @@ max-height: 90%;
 }
  
 @keyframes zoomin{
-0%{
-    -ms-transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
-    -webkit-transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
-    -o-transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
-    -moz-transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
-    transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
-    animation-timing-function: linear;
- 
- 
+	0%{
+		-ms-transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
+		-webkit-transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
+		-o-transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
+		-moz-transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
+		transform: scale3d(1.1, 1.1, 1.1) translate3d(0px, 0px, 0px);
+		animation-timing-function: linear;
+	
+	
+	} 
+	100%{
+		-ms-transform: scale3d(1.5, 1.5, 1.5) translate3d(-0px, 0px, 0px);
+		-webkit-transform: scale3d(3.5, 3.5, 3.5) translate3d(0px, 0px, 0px);
+		-o-transform: scale3d(1.5, 1.5, 1.5) translate3d(0px, 0px, 0px);
+		-moz-transform: scale3d(1.5, 1.5, 1.5) translate3d(0px, 0px, 0px);
+		transform: scale3d(1.5, 1.5, 1.5) translate3d(0px, 0px, 0px);
+	
+	}
 }
  
- 
-100%{
-    -ms-transform: scale3d(1.5, 1.5, 1.5) translate3d(-0px, 0px, 0px);
-    -webkit-transform: scale3d(3.5, 3.5, 3.5) translate3d(0px, 0px, 0px);
-    -o-transform: scale3d(1.5, 1.5, 1.5) translate3d(0px, 0px, 0px);
-    -moz-transform: scale3d(1.5, 1.5, 1.5) translate3d(0px, 0px, 0px);
-    transform: scale3d(1.5, 1.5, 1.5) translate3d(0px, 0px, 0px);
- 
-}
-}
- 
-/*adjust Divi Menu module breakpoint*/
-@media only screen and (max-width: 1160px) {
-#top-menu-nav {
-display: none;
-}
-#et_mobile_nav_menu {
-display: block
-}
-}
- 
-/* Display current year function */
-
-function year_shortcode() {
-$year = date_i18n('Y');
-return $year; } add_shortcode
-(
-'year', 'year_shortcode');
- 
- 
-/* allow font files to be uploaded */
- 
-define('ALLOW_UNFILTERED_UPLOADS', true);
- 
- 
-/* fix shitty divi navigation with centered logo ( works best with circle logo ) */
+/** 6. Divi centered menu mobile upgrade **/
+/** Mobile upgrade for Divi "Centered Inline Logo" menu option  **/ 
  
 .et_header_style_left #et-top-navigation, .et_header_style_split #et-top-navigation {
 	padding-top: 0;
@@ -206,22 +129,22 @@ define('ALLOW_UNFILTERED_UPLOADS', true);
 }
  
  
-/* background ribbon */ 
+/* 7. Pusedo element ribbon */ 
  
 .ribbon-content:before {
- content: "";
- position: absolute;
- display: block;
- border-style: solid;
- border-color: #804f7c transparent transparent transparent;
- bottom: -1em;
+	content: "";
+	position: absolute;
+	display: block;
+	border-style: solid;
+	border-color: #804f7c transparent transparent transparent;
+	bottom: -1em;
 }
 .ribbon-content:before {
- left: 0;
- border-width: 1em 0 0 1em;
+	left: 0;
+	border-width: 1em 0 0 1em;
 }
  
-/* pusedo element outlines */ 
+/* 8. Pusedo element outlines */ 
 
 .element:before {
 	display: block;
