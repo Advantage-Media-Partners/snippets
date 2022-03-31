@@ -10,6 +10,7 @@
     5. Change logo width in custom navigation on scroll 
     6. Before & After Borders CSS
     7. Blur sections when hovering on another section ( blur one column while hovering on adjacent column )
+    8. Gravity Forms date picker restriction 
 
 -->
 
@@ -176,3 +177,24 @@ $(window).scroll(()=>{
   })( jQuery );
 </script>
   
+<!--     8. Gravity Forms date picker restriction   -->
+<!-- Add HTML block to gravity forms and add following script there -->
+<!-- Identify the ID of the field with the date and replace in snippet -->
+
+
+<script type="text/javascript">
+    Date.prototype.addDays = function(days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+    }
+    let date = new Date();
+    console.log(date.addDays(3));
+    let orderDate = date.addDays(3);
+    gform.addFilter( 'gform_datepicker_options_pre_init', function( optionsObj, formId, fieldId ) {
+    if ( formId == 1 && fieldId == 7 ) {
+    optionsObj.minDate = orderDate;
+    }
+    return optionsObj;
+    } );
+  </script>
