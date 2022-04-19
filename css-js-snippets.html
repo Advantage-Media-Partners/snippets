@@ -11,6 +11,7 @@
     6. Before & After Borders CSS
     7. Blur sections when hovering on another section ( blur one column while hovering on adjacent column )
     8. Gravity Forms date picker restriction 
+    9. Hide/Show nav on scroll down/up
 
 -->
 
@@ -198,3 +199,29 @@ $(window).scroll(()=>{
     return optionsObj;
     } );
   </script>
+
+
+<!-- 9. Hide/Show nav on scroll down/up  -->  
+<!-- Section with nav-mneu-hide-on-scroll id should be position:fixed -->
+
+<style>
+  #nav-menu-hide-on-scroll {
+    transition: all .5s;
+  }
+</style>
+<script>
+(function($) {
+    $( document ).ready(function() {
+    let menu = $('#nav-menu-hide-on-scroll');
+        window.onscroll = function(e) {
+          menu.css('top', '0%');
+          if(this.oldScroll > this.scrollY == true) {
+            menu.css('top', '0%');
+          } else {
+            menu.css('top', '-100%');
+          }
+          this.oldScroll = this.scrollY;
+        }
+    });	
+})( jQuery );
+</script>
