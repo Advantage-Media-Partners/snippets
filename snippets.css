@@ -9,6 +9,7 @@
 7. Pusedo element ribbon
 8. Pusedo element outlines
 9. Customize WooCommerce Buttons
+10. Pusedo element before image 
 
 **/ 
 
@@ -200,4 +201,13 @@
 .woocommerce-message a.button.wc-forward, .woocommerce-message a.button.wc-forward:hover {
 	background: black;
 	color: white;
+}
+
+/** 10. Pusedo element before image  **/
+
+.custom-icon::before {
+	content: url('enter-relative-image-url-here.jpg');
+	position: absolute;
+	left: -30px;
+	top: 3px;
 }
