@@ -14,6 +14,7 @@
     9. Hide/Show nav on scroll down/up
     10. Custom hamburger menu icon and animations
     11. Slide out navigation
+    12. Change blog module read more text 
 
 -->
 
@@ -359,3 +360,15 @@ $( document ).ready(function() {
   });	
 })( jQuery );
 </script>
+
+<!-- 12. Change blog module read more text -->
+<!-- Add to the footer or header php template -->
+
+<script>
+  (function($) {
+    if('.more-link') {
+          $(".more-link").html("Some New Stuff");
+      }
+    
+  })( jQuery );
+  </script>
