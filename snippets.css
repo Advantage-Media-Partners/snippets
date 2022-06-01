@@ -10,6 +10,7 @@
 8. Pusedo element outlines
 9. Customize WooCommerce Buttons
 10. Pusedo element before image 
+11. Adjust Divi module break point 
 
 **/ 
 
@@ -210,4 +211,16 @@
 	position: absolute;
 	left: -30px;
 	top: 3px;
+}
+
+/** 11. Adjust Divi module break point **/
+/** Change max width number to change where the break point kicks in **/
+
+@media only screen and (max-width: 1275px) {
+    .et_pb_menu .et_pb_menu__menu {
+        display: none;
+    }
+    .et_mobile_nav_menu {
+        display: block
+    }
 }
