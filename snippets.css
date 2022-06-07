@@ -7,10 +7,9 @@
 5. Ken Burns BG Slider Effect
 6. Divi centered menu mobile upgrade
 7. Pusedo element ribbon
-8. Pusedo element outlines
-9. Customize WooCommerce Buttons
-10. Pusedo element before image 
-11. Adjust Divi module break point 
+8. Customize WooCommerce Buttons
+9. Pusedo element before image 
+10. Adjust Divi module break point 
 
 **/ 
 
@@ -148,23 +147,8 @@
 	border-width: 1em 0 0 1em;
 }
  
-/* 8. Pusedo element outlines */ 
 
-.element:before {
-	display: block;
-	position: absolute;
-	top: 10px;
-	left: 10px;
-	width: calc(100% - 22px);
-	height: calc(100% - 22px);
-	border: 1px solid #d9e1e2;
-	z-index: 999;
-	max-width: none;
-	content: '';
-	pointer-events: none;
-}
-
-/** 9. Customize WooCommerce Elements **/
+/** 8. Customize WooCommerce Elements **/
 
 /* Buttons Standard State */
 
@@ -204,7 +188,7 @@
 	color: white;
 }
 
-/** 10. Pusedo element before image  **/
+/** 9. Pusedo element before image  **/
 
 .custom-icon::before {
 	content: url('enter-relative-image-url-here.jpg');
@@ -213,7 +197,7 @@
 	top: 3px;
 }
 
-/** 11. Adjust Divi module break point **/
+/** 10. Adjust Divi module break point **/
 /** Change max width number to change where the break point kicks in **/
 
 @media only screen and (max-width: 1275px) {
@@ -223,4 +207,13 @@
     .et_mobile_nav_menu {
         display: block
     }
+}
+
+/** Psuedo Element with image - parent element must be relative - adjust top/right/left/bottom values accordingly **/
+
+.element::before {
+	content: url('relative-path-to-image-in-image-library');
+	position: absolute;
+	top: 0px;
+	right: 0px;
 }
