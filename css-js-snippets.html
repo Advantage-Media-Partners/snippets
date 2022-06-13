@@ -15,6 +15,7 @@
     10. Custom hamburger menu icon and animations
     11. Slide out navigation
     12. Change blog module read more text 
+    13. Scroll Reveal Footer
 
 -->
 
@@ -372,3 +373,48 @@ $( document ).ready(function() {
     
   })( jQuery );
   </script>
+
+  <!-- 13. Scroll Reveal Footer -->
+
+  <!-- Add code to footer, make section & row with code module 0 padding, 0 margin, 0 height -->
+  <!-- Add footer elements in single section and add id="footer-el" to this section -->
+  <!-- All pages of site should have a common element at the bottom of the page for the "reveal" to happen behind -->
+  <!-- Footer may be too tall for mobile devices, if so hide some elements on mobile -->
+  <!-- See Park City Website for example -->
+
+  <style>
+    #main-content {
+      position: relative;
+      z-index: 10;
+    }
+    
+    footer {
+      position: fixed;
+      z-index: 2;
+      bottom: 0;
+      width: 100vw;
+      display: inline-block;
+    }
+    </style>
+    <script>
+    (function($) {
+      let footer = $('footer');
+      let footerInner = $('#footer-el');
+      let mainContent = $('#main-content');
+      
+      // add styles for fixed footer
+      $( document ).ready(function() {
+          let mh = footerInner.outerHeight();
+          footer.css('height', mh);
+          mainContent.css('margin-bottom', mh);
+      });
+      
+      // update styles for fixed footer on screen resize
+      $( window ).resize(function() {
+          let mh = footerInner.outerHeight();
+          footer.css('height', mh);
+          mainContent.css('margin-bottom', mh);
+      });
+      
+    })( jQuery );
+    </script>
