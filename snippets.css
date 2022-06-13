@@ -10,6 +10,7 @@
 8. Customize WooCommerce Buttons
 9. Pusedo element before image 
 10. Adjust Divi module break point 
+11. Zoom column image on hover 
 
 **/ 
 
@@ -197,6 +198,15 @@
 	top: 3px;
 }
 
+/** Psuedo Element with image - parent element must be relative - adjust top/right/left/bottom values accordingly **/
+
+.element::before {
+	content: url('relative-path-to-image-in-image-library');
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
 /** 10. Adjust Divi module break point **/
 /** Change max width number to change where the break point kicks in **/
 
@@ -209,11 +219,20 @@
     }
 }
 
-/** Psuedo Element with image - parent element must be relative - adjust top/right/left/bottom values accordingly **/
+/** 11. Zoom column image on hover **/
+/** Add image to column, add hover-col class to column, add expand class to image module **/
+/** Position absolute content ontop of image in column, this will produce an effect where the image is zoomed in on hover
+and the content ontop is clickable **/
 
-.element::before {
-	content: url('relative-path-to-image-in-image-library');
-	position: absolute;
-	top: 0px;
-	right: 0px;
-}
+  .hover-col {
+    overflow: hidden;
+  }
+  
+  .hover-col .expand {
+    transform: scale(1);
+    transition: all .5s;
+  }
+
+  .hover-col:hover .expand {
+    transform: scale(1.2);
+  }
