@@ -4,7 +4,7 @@
  * 1. ACF PRO Repeater Fields 
  * 2. Add new admin user via Functions.php
  * 3. CPT starter
- * 
+ * 4. CPT custom taxonomy starter
 **/
 ?>
 
@@ -81,3 +81,41 @@ function cpt_starter_cpt() {
   add_action( 'init', 'recent_projects_cpt' );
 
   ?> 
+
+
+// 4. CPT custom taxonomy starter
+
+<?php 
+
+function recent_projects_taxonomy() {
+    $projects_labels = array(
+        'name'               => _x( 'CPT Taxonomies', 'cpt-taxonomies' ),
+        'singular_name'      => _x( 'CPT Taxonomy', 'cpt-taxonomy' ),
+        'add_new'            => _x( 'Add New', 'CPT Taxonomy' ),
+        'add_new_item'       => __( 'Add New CPT Taxonomy' ),
+        'edit_item'          => __( 'Edit CPT Taxonomy' ),
+        'new_item'           => __( 'New CPT Taxonomy' ),
+        'all_items'          => __( 'All CPT Taxonomies' ),
+        'view_item'          => __( 'View CPT Taxonomies' ),
+        'search_items'       => __( 'Search CPT Taxonomies' ),
+        'not_found'          => __( 'No CPT Taxonomies found' ),
+        'not_found_in_trash' => __( 'No CPT Taxonomies found in the Trash' ),
+        'menu_name'          => 'CPT Taxonomy',
+      );
+    register_taxonomy(
+        'cpt-taxonomies',  // name of the taxonomy. 
+        'CPT Taxonomy is for',             // post type name
+        array(
+            'hierarchical' => true,
+            'labels' => $projects_labels, // custom labels
+            'query_var' => true,
+            'rewrite' => array(
+                'slug' => 'cpt-taxonomy',    // This controls the base slug that will display before each term
+                'with_front' => false  // Don't display the category base before
+            )
+        )
+    );
+ }
+ add_action( 'init', 'recent_projects_taxonomy');
+
+ ?>
