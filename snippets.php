@@ -3,6 +3,7 @@
 /** 
  * 1. ACF PRO Repeater Fields 
  * 2. Add new admin user via Functions.php
+ * 3. CPT starter
  * 
 **/
 ?>
@@ -42,3 +43,41 @@ function new_admin_account(){
 add_action('init','new_admin_account');
 
 ?>
+
+// 3. CPT starter
+
+<?php 
+
+function cpt_starter_cpt() {
+    $labels = array(
+      'name'               => _x( 'CPT Starter', 'cpt-starter' ),
+      'singular_name'      => _x( 'CPT Starter', 'cpt-starter' ),
+      'add_new'            => _x( 'Add New', 'CPT Starter' ),
+      'add_new_item'       => __( 'Add New CPT Starter' ),
+      'edit_item'          => __( 'Edit CPT Starter' ),
+      'new_item'           => __( 'New CPT Starter' ),
+      'all_items'          => __( 'All CPT Starter' ),
+      'view_item'          => __( 'View CPT Starter' ),
+      'search_items'       => __( 'Search CPT Starter' ),
+      'not_found'          => __( 'No CPT Starter found' ),
+      'not_found_in_trash' => __( 'No CPT Starter found in the Trash' ),
+      'menu_name'          => 'CPT Starter',
+    );
+    $args = array(
+      'labels'              => $labels,
+      'description'         => 'CPT Starter',
+      'public'              => true,
+      'publicly_queryable'  => true,
+      'menu_position'       => 5,
+      'menu_icon'           => 'dashicons-businessman',
+      'supports'            => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+      'rewrite'             => array( 'slug' => 'cpt-starter' ),
+      'has_archive'         => true,
+      'show_in_rest' 		=> true,
+      'taxonomies'  => array( 'types' )
+    );
+    register_post_type( 'cpt-starter', $args ); 
+  }
+  add_action( 'init', 'recent_projects_cpt' );
+
+  ?> 
