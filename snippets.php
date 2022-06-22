@@ -5,6 +5,7 @@
  * 2. Add new admin user via Functions.php
  * 3. CPT starter
  * 4. CPT custom taxonomy starter
+ * 5. Kill Gutenberg - functions.php
 **/
 ?>
 
@@ -119,3 +120,13 @@ function recent_projects_taxonomy() {
  add_action( 'init', 'recent_projects_taxonomy');
 
  ?>
+
+ // 5. Kill gutenberg - add to functions.php
+
+ <?php 
+
+add_filter('use_block_editor_for_post', '__return_false', 10);
+
+add_filter('use_block_editor_for_post_type', '__return_false', 10);
+
+?>
