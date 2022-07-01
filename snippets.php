@@ -7,6 +7,8 @@
  * 4. CPT custom taxonomy starter
  * 5. Kill Gutenberg - functions.php
  * 6. Disable specific plugin updates - functions.php
+ * 7. Update all posts from functions.php
+ * 8. remove strings from taxonomy terms 
 **/
 ?>
 
@@ -143,5 +145,77 @@ function my_filter_plugin_updates( $value ) {
      return $value;
   }
   add_filter( 'site_transient_update_plugins', 'my_filter_plugin_updates' );
+
+?>
+
+// 7. Update all posts from functions.php
+// good if you need to update dozes or hundreds of posts 
+// MAKE SURE this code is removed after the update 
+
+<?php 
+
+function update_all_posts() {
+  $args = array(
+      'post_type' => 'experts',
+      'numberposts' => -1
+  );
+  $all_posts = get_posts($args);
+  $limiter = 0;
+  foreach ($all_posts as $single_post){
+
+      //auto_update_content($single_post->ID, $single_post);
+
+      ///$single_post->post_title = $single_post->post_title.'';
+      wp_update_post( $single_post );
+  }
+}
+
+?>
+
+// 7A. Update all posts from functions.php
+// auto update function that is commented about above, adds CPT taxonomy to content area of CPT posts 
+// This allows taxonomy to display in search results 
+
+<?php 
+
+function auto_update_content($post_id, $post) {
+  // create content to add 
+  $postID = get_the_ID();
+  $industry_tax_terms = strip_tags(get_the_term_list( $post->ID, 'experts_industries', '', ', ' ));
+  $spec_tax_terms = strip_tags(get_the_term_list( $post->ID, 'experts_specialities', '', ', ' ));
+  $loc_tax_term = strip_tags(get_the_term_list( $post->ID, 'experts_locations', '', ', ' ));
+  $add_content = $industry_tax_terms . ' ' . $spec_tax_terms . ' ' . $loc_tax_term;
+  //error_log(print_r($add_content, true));
+  
+  // create your terms list and insert to content here:
+  $post->post_content = $add_content;
+  
+  // Delete hook to avoid endless loop
+  remove_action('save_post', 'change_content_on_save', 10);
+  wp_update_post($post);
+}
+
+?>
+
+// 8. remove strings from taxonomy terms 
+// replace taxonomy parameter with appropriate taxonomy 
+// 
+
+<?php 
+
+function remove_stuff() {
+  $terms = get_terms( array(
+      'taxonomy' => 'experts_industries',
+      'hide_empty' => false,
+  ) );
+
+  foreach($terms as $term) {
+
+      $newSlug = str_replace('text-to-replace', 'replacement-text' , $term->slug);
+      wp_update_term($term->term_id, 'taxonomy', array( 'slug' => $newSlug ));
+
+  }
+}
+add_action( 'wp_loaded', 'remove_stuff' );
 
 ?>
