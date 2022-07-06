@@ -16,7 +16,7 @@
     11. Slide out navigation
     12. Change blog module read more text 
     13. Scroll Reveal Footer
-
+    14. Add click events to all items with a certain class name 
 -->
 
 <!--- 1. jQuery wrapper for wordpress --->
@@ -419,3 +419,15 @@ $( document ).ready(function() {
     })( jQuery );
     </script>
     
+
+<!-- 14. Add click events to all items with a certain class name   -->
+
+<script>
+    var close = document.querySelectorAll('.customClose');
+  close.forEach((item) => {
+    item.addEventListener('click', () => {
+      document.getElementById('slide-out').classList.remove('active');
+      document.getElementById("nav-toggler").checked = false
+    });
+  });
+</script>
