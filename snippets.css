@@ -11,6 +11,7 @@
 9. Pusedo element before image 
 10. Adjust Divi module break point 
 11. Zoom column image on hover 
+12. Expand column on hover, shrink others
 
 **/ 
 
@@ -235,4 +236,20 @@ and the content ontop is clickable **/
 
   .hover-col:hover .expand {
     transform: scale(1.2);
+  }
+
+/** 12. Expand column on hover, shrink others **/ 
+/** add expand-container class to row **/
+/** add expand-column class to columns in expand-container **/
+/** adjust widths accordingly **/
+  .expand-container {
+    	display: flex;
+  }
+  .expand-container .expand-column {
+      width: 33.3333% !important;
+    	-webkit-transition: all 1s;
+    	transition: all 1s;
+  }
+  .expand-container > .expand-column:hover {
+    width: 80% !important;
   }
