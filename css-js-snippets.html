@@ -17,6 +17,8 @@
     12. Change blog module read more text 
     13. Scroll Reveal Footer
     14. Add click events to all items with a certain class name 
+    15. Intersectional Obsever ( add/remove classes when elements move in and out of the viewport )
+
 -->
 
 <!--- 1. jQuery wrapper for wordpress --->
@@ -431,3 +433,32 @@ $( document ).ready(function() {
     });
   });
 </script>
+
+<!--- 15. Intersectional Obsever ( add/remove classes when elements move in and out of the viewport )
+
+  add target class to elements that need to be monitored for when they are in/out of the viewport
+  can add and remove classes based on whether they are in view or not 
+  play with threshold parameters to change sensitivity on when something is consider in/out of view
+
+-->
+<script>
+  (function($) {
+      const targets = document.querySelectorAll('.target');
+          console.log(targets)
+          function handleIntersection(entries) {
+              entries.map((entry) => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add('in-view');
+                  } else {
+                      //entry.target.classList.remove('in-view');
+                  }
+              });
+          }
+          const observer = new IntersectionObserver(handleIntersection, {threshold: 1});
+
+          targets.forEach(target => {
+              observer.observe(target)
+          });
+  
+  })( jQuery );
+  </script>
