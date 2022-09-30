@@ -9,6 +9,7 @@
  * 6. Disable specific plugin updates - functions.php
  * 7. Update all posts from functions.php
  * 8. remove strings from taxonomy terms 
+ * 9. wp-config space increase 
 **/
 ?>
 
@@ -217,5 +218,18 @@ function remove_stuff() {
   }
 }
 add_action( 'wp_loaded', 'remove_stuff' );
+
+?>
+
+// 9 wp config space increase 
+// when all else fails. add the following line to wp-config
+// check global php options first and make sure that 
+// check php.ini settings should be the following
+// post_max_size = 300M
+// upload_max_filesize = 300M
+
+<?php 
+
+define( 'WP_MEMORY_LIMIT', '300M' );
 
 ?>
