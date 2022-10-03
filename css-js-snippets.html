@@ -89,7 +89,7 @@
       // SET AGE COOKIES 
       var allCookies = document.cookie;
       function checkAge() {
-        if(allCookies.search('age-wall=yes') == 0) {
+        if(allCookies.search('age-wall=yes') != -1) {
              $('#age-wall-overlay').hide();
               console.log('you shall pass');
           } else {
