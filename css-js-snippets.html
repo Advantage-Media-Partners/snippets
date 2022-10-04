@@ -19,6 +19,7 @@
     14. Add click events to all items with a certain class name 
     15. Intersectional Obsever ( add/remove classes when elements move in and out of the viewport )
     16. Custom Slider with divi rows 
+    17. Pop Up Code  
 -->
 
 <!--- 1. jQuery wrapper for wordpress --->
@@ -621,4 +622,34 @@ $( document ).ready(function() {
   });
   
 })( jQuery );
+</script>
+
+<!-- 17. Pop Up Code  
+
+1. Create a global section in the header or footer file 
+2. set the positioning on the section to fixed and centered
+3. give the section the ID of overlay - make the min height and min width 100vh and 100vw - add any additional styles through the module settings ( background, fonts etc. )
+4. the content inside the overlay section will be the pop up, include a button with the id of popup-close somewhere in content
+5. create a trigger for the pop up, give it an id of popup-open
+6. **optional** you can make the pop up more graceful by using opacity and transition css properties 
+-->
+
+<style>
+
+#overlay {
+  display: none;
+}
+
+</style>
+
+<script>
+
+$('#popup-open').click(function(e){
+    $('#overlay').show();
+});
+
+$('#popup-close').click(function(e){
+    $('#overlay').hide();
+});
+
 </script>
