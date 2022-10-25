@@ -83,33 +83,38 @@
     })( jQuery );
     </script>
 
-<!-- 4. Create and check for cookie for age overlay -->
+<!-- 4. Create and Check for cookie for custom pop-up JS -->
+<!-- element with overlay ID is the element that contains the pop up -->
+<!-- element with overlay ID needs to be position: fixed; and z-index: 999; -->
+<!-- can use transition and top/left/right/bottom positioning to change how it comes into view -->
+<!-- if using transition and positioning chnage .show() to .addClass() and .hide() to .removeClass() to toggle display -->
 
 <script>
-    (function($) {
-      // SET AGE COOKIES 
-      var allCookies = document.cookie;
-      function checkAge() {
-        if(allCookies.search('age-wall=yes') != -1) {
-             $('#age-wall-overlay').hide();
-              console.log('you shall pass');
-          } else {
-            console.log('you shall not pass');
-            $('#age-wall-overlay').css('display','flex');
-          $('#age-yes').click(function(e){
-            e.preventDefault();
-            document.cookie='age-wall=yes;path=/;';
-            $('#age-wall-overlay').hide();
-          });
-          $('#age-no').click(function(e){	
-              e.preventDefault();
-              alert('Sorry, you must be at least 21 to enter.')
-          });
-        }
+  (function($) {
+    // SET AGE COOKIES 
+  var allCookies = document.cookie;
+  console.log(typeof(allCookies));
+    function checkAge() {
+    if(allCookies.search('popup=yes') != -1) {
+         //$('#age-wall-overlay').hide();
+      } else {
+      $('#overlay').show();
+      $('#overlay').css('display','flex');
+        $('#popup-close').click(function(e){
+          e.preventDefault();
+          document.cookie='popup=yes;path=/;Priority=High;max-age=86400;';
+          $('#overlay').hide();
+        });
+    $('#popup-close-mobile').click(function(e){
+          e.preventDefault();
+          document.cookie='popup=yes;path=/;Priority=High;max-age=86400;';
+          $('#overlay').hide();
+        });
       }
-    window.addEventListener('load', checkAge);
-    })( jQuery );
-    </script> 
+    }
+  window.addEventListener('DOMContentLoaded', checkAge);
+  })( jQuery );
+  </script> 
 
 <!-- 5. Change Navigation Logo Size on scroll ( Custom Menu )  -->
 
