@@ -253,3 +253,10 @@ and the content ontop is clickable **/
   .expand-container > .expand-column:hover {
     width: 80% !important;
   }
+
+  /**13. Right-align menu icon on mobile **/
+  @media screen and (max-width: 600px) {
+	.et_pb_menu__wrap {
+	  justify-content: flex-end;
+	}
+}
