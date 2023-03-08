@@ -132,6 +132,23 @@
 		margin-top: -7px;
 	}
 }
+
+/** 6.1 Divi centered menu mobile upgrade - Flex Option **/ 
+@media all and (max-width: 980px) {
+	.et_pb_menu_inner_container {
+	  display:flex; 
+	  flex-wrap: nowrap;
+	} 
+	.et_pb_menu__wrap {
+	  flex-grow:0;
+	  max-width:64px;
+	}
+	.et_pb_menu__logo-wrap {
+	  padding-left:64px;
+	  flex-grow:1;
+	  margin-bottom:0 !important;
+	}
+}
  
  
 /* 7. Pusedo element ribbon */ 
