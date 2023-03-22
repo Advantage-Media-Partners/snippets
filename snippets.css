@@ -281,6 +281,7 @@ and the content ontop is clickable **/
 }
 
 /** 14. Divi gallery 1:1 ratio **/
+/** add the .et-gallery-image-1-1 class to DIVI gallery module  **/
 .et-gallery-image-1-1 .et_pb_gallery_items {
 	display: grid;
 	gap: 8px;
