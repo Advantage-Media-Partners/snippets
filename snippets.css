@@ -12,6 +12,8 @@
 10. Adjust Divi module break point 
 11. Zoom column image on hover 
 12. Expand column on hover, shrink others
+13. Right-align menu icon on mobile
+14. Divi gallery 1:1 ratio
 
 **/ 
 
@@ -271,9 +273,67 @@ and the content ontop is clickable **/
     width: 80% !important;
   }
 
-  /**13. Right-align menu icon on mobile **/
-  @media screen and (max-width: 600px) {
+/** 13. Right-align menu icon on mobile **/
+@media screen and (max-width: 600px) {
 	.et_pb_menu__wrap {
 	  justify-content: flex-end;
+	}
+}
+
+/** 14. Divi gallery 1:1 ratio **/
+/** add the .et-gallery-image-1-1 class to DIVI gallery module  **/
+.et-gallery-image-1-1 .et_pb_gallery_items {
+	display: grid;
+	gap: 8px;
+}
+
+.et-gallery-image-1-1 .et_pb_gallery_item {
+	width:100% !important;
+	margin:0 !important;
+}
+
+.et-gallery-image-1-1 .et_pb_gallery_image {
+	width:100% !important;
+	padding-top: 100% !important;
+	position:relative;
+	overflow:hidden;
+	margin:0 !important;
+}
+.et-gallery-image-1-1 .et_pb_gallery_image a {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.et-gallery-image-1-1 .et_pb_gallery_image img {
+	width:100% !important;
+	height:100% !important;
+	object-fit: cover;
+	object-position:center;
+}
+
+/* Set column count and size
+/* Desktop */
+@media all and (min-width: 981px) {
+	/* 4 col */
+	.et-gallery-image-1-1  .et_pb_gallery_items {
+		grid-template-columns: auto auto auto auto;
+	}
+}
+/* Tablet */
+@media all and (min-width: 768px) and (max-width: 980px) {
+	/* 4 col */
+	.et-gallery-image-1-1  .et_pb_gallery_items {
+		grid-template-columns: auto auto auto auto;
+	}
+}
+/* Mobile */
+@media all and (max-width: 767px) { 
+	/* 1 col */
+	.et-gallery-image-1-1  .et_pb_gallery_items {
+		grid-template-columns: auto auto;
 	}
 }
