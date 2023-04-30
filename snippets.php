@@ -123,6 +123,40 @@ function recent_projects_taxonomy() {
  }
  add_action( 'init', 'recent_projects_taxonomy');
 
+// puppies CPT
+
+function cpt_puppies() {
+    $labels = array(
+      'name'               => _x( 'Puppies', 'puppies' ),
+      'singular_name'      => _x( 'Puppies', 'puppies' ),
+      'add_new'            => _x( 'Add New', 'Puppies' ),
+      'add_new_item'       => __( 'Add New Puppies' ),
+      'edit_item'          => __( 'Edit Puppies' ),
+      'new_item'           => __( 'New Puppies' ),
+      'all_items'          => __( 'All Puppies' ),
+      'view_item'          => __( 'View Puppies' ),
+      'search_items'       => __( 'Search Puppies' ),
+      'not_found'          => __( 'No Puppies found' ),
+      'not_found_in_trash' => __( 'No Puppies found in the Trash' ),
+      'menu_name'          => 'Puppies',
+    );
+    $args = array(
+      'labels'              => $labels,
+      'description'         => 'Puppies',
+      'public'              => true,
+      'publicly_queryable'  => true,
+      'menu_position'       => 5,
+      'menu_icon'           => 'dashicons-pets',
+      'supports'            => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
+      'rewrite'             => array( 'slug' => 'puppies' ),
+      'has_archive'         => true,
+      'show_in_rest' 		=> true,
+      'taxonomies'  => array( 'types' )
+    );
+    register_post_type( 'puppies', $args ); 
+  }
+  add_action( 'init', 'cpt_puppies' );
+
  ?>
 
  // 5. Kill gutenberg - add to functions.php
