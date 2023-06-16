@@ -83,7 +83,7 @@ function cpt_starter_cpt() {
     );
     register_post_type( 'cpt-starter', $args ); 
   }
-  add_action( 'init', 'recent_projects_cpt' );
+  add_action( 'init', 'cpt_starter_cpt' );
 
   ?> 
 
